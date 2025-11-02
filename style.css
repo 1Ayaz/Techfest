@@ -1,3 +1,4 @@
+/* Base */
 * {
   margin: 0;
   padding: 0;
@@ -8,75 +9,81 @@ body {
   font-family: "Poppins", sans-serif;
   background: #0a0f1f;
   color: #fff;
-  scroll-behavior: smooth;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* hero layout */
+/* Hero Section */
 .hero {
+  width: 100%;
   height: 100vh;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0 20px;
-  position: relative;
-  overflow: hidden;
 }
 
-/* floating blobs */
-.bg-anim span {
+/* Floating animation blobs */
+.animation span {
   position: absolute;
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle, rgba(74,193,255,0.7), transparent);
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(80,170,255,0.7), transparent);
   border-radius: 50%;
-  filter: blur(26px);
-  opacity: 0.6;
   animation: float 10s infinite ease-in-out alternate;
+  filter: blur(25px);
+  opacity: 0.65;
 }
 
-.bg-anim span:nth-child(1) { top: -8%; left: -6%; }
-.bg-anim span:nth-child(2) { bottom: -12%; right: -8%; animation-delay: 2s; }
-.bg-anim span:nth-child(3) { top: 18%; right: 4%; animation-delay: 4s; }
-.bg-anim span:nth-child(4) { bottom: 12%; left: 12%; animation-delay: 6s; }
+.animation span:nth-child(1) { top: -10%; left: -5%; }
+.animation span:nth-child(2) { bottom: -15%; right: -10%; animation-delay: 2s; }
+.animation span:nth-child(3) { top: 20%; right: 5%; animation-delay: 4s; }
+.animation span:nth-child(4) { bottom: 10%; left: 10%; animation-delay: 6s; }
 
 @keyframes float {
   0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-35px) scale(1.08); }
+  100% { transform: translateY(-40px) scale(1.1); }
 }
 
-/* hero content box */
-.box {
+/* Content Box */
+.hero-content {
   position: relative;
   z-index: 10;
   max-width: 650px;
   padding: 40px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 16px;
   backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 40px rgba(0,0,0,0.4);
 }
 
-.box h1 {
-  font-size: 3.1rem;
+.hero-content h1 {
+  font-size: 3.2rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #4fd5ff, #85ffb3);
+  background: linear-gradient(90deg, #4adeff, #86ffb6);
   -webkit-background-clip: text;
   color: transparent;
   margin-bottom: 14px;
 }
 
-.box p {
+.hero-content p {
   font-size: 1rem;
-  color: #c8d3e9;
-  margin-bottom: 26px;
+  color: #c9d2e3;
+  line-height: 1.6;
+  margin-bottom: 25px;
 }
 
-/* buttons */
-.actions {
+/* Buttons */
+.cta {
   display: flex;
+  gap: 12px;
   justify-content: center;
-  gap: 14px;
 }
 
 .btn {
@@ -84,44 +91,34 @@ body {
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
   transition: 0.25s ease;
+  font-size: 0.95rem;
 }
 
-.primary {
-  background: linear-gradient(90deg, #4fd5ff, #85ffb3);
-  color: #08141b;
+.btn.primary {
+  background: linear-gradient(90deg, #4adeff, #86ffb6);
+  color: #051018;
   box-shadow: 0 8px 24px rgba(0,0,0,0.35);
 }
 
-.primary:hover {
+.btn.primary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
 }
 
-.ghost {
-  border: 1px solid rgba(255,255,255,0.35);
-  color: #fff;
+.btn.ghost {
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  backdrop-filter: blur(4px);
 }
 
-.ghost:hover {
-  background: rgba(255,255,255,0.1);
+.btn.ghost:hover {
+  background: rgba(255,255,255,0.08);
 }
 
-/* extra sections so buttons scroll */
-.next {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #0d1326;
-  gap: 10px;
-}
-
-/* responsive */
+/* Responsive */
 @media (max-width: 600px) {
-  .box { padding: 28px; }
-  .box h1 { font-size: 2.2rem; }
-  .actions { flex-direction: column; }
+  .hero-content { padding: 28px; }
+  .hero-content h1 { font-size: 2.2rem; }
+  .cta { flex-direction: column; }
 }
