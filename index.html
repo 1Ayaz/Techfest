@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing Page</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Launch Page</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section class="hero">
-    <div class="animation">
+
+  <section class="hero" id="home">
+    <div class="bg-anim">
       <span></span><span></span><span></span><span></span>
     </div>
 
-    <div class="hero-content">
+    <div class="box">
       <h1>Build. Launch. Inspire.</h1>
-      <p>Modern, clean and animated — a single-section landing page crafted with pure HTML & CSS.</p>
-      <div class="cta">
-        <a href="#" class="btn primary">Get Started</a>
-        <a href="#" class="btn ghost">Learn More</a>
+      <p>A single section landing page with a clean animated hero.</p>
+      <div class="actions">
+        <a href="#start" class="btn primary">Get Started</a>
+        <a href="#info" class="btn ghost">Learn More</a>
       </div>
     </div>
   </section>
+
+  <section class="next" id="start">
+    <h2>Start Here</h2>
+    <p>This area is linked to the main button.</p>
+  </section>
+
+  <section class="next" id="info">
+    <h2>More Info</h2>
+    <p>This area is linked to the second button.</p>
+  </section>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", e => {
+      e.preventDefault();
+      document.querySelector(anchor.getAttribute("href")).scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
